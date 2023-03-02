@@ -13,7 +13,7 @@ pipeline {
                     // def info = readJSON file: "data.json"
                     def infoRead = info.readLines()
                     echo 'Start Trigger to send name and age to slave'
-                    build job: 'Slave', parameters: [string(name: 'Name', value: infoRead[0].Name), string(name: 'Age', value: infoRead[0].Age)]
+                    build job: 'Slave', parameters: [string(name: 'Name', value: infoRead.get(0)), string(name: 'Age', value: infoRead.get(1))]
                 }
             }
         }
