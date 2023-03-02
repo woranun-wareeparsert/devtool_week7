@@ -9,8 +9,8 @@ pipeline {
         stage('Tigger the Slave Jobs') {
             steps {
                 script {
-                    // def info = readFile(file: "data.json")
-                    def info = readJSON file: "data.json"
+                    // def info = readJSON file: "data.json"
+                    def info = readFile(file: "data.txt")
                     def infoRead = info.readLines()
                     echo 'Start Trigger to send name and age to slave'
                     build job: 'Slave', parameters: [string(name: 'Name', value: infoRead[0].Name), string(name: 'Age', value: infoRea[0].Age)]
