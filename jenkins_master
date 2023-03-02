@@ -12,7 +12,7 @@ pipeline {
                     def info = readFile(file: "info.txt")
                     def info_read = info.readLines()
                     echo 'Start Trigger to send name and age to slave'
-                    build job: 'Slave', parameters: [string(name: 'NAME', value: info_read.get(0)), string(name: 'Ages', value: info_read.get(1))]
+                    build job: 'Slave', parameters: [string(name: 'Name', value: info_read.get(0)), string(name: 'Age', value: info_read.get(1))]
                 }
             }
         }
