@@ -1,14 +1,13 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'NAME', defaultValue: 'Tuchsanai', description: 'Enter your name')
-        choice(name: 'CITY', choices: ['Bangkok','Bebbanburg', 'Mercia', 'East Anglia'], description: 'Choose your city')
+        string(name: 'Name', defaultValue: 'Woranun', description: 'Enter your name')
+        string(name: 'Age', defaultValue: '50', description: 'Enter your age')
     }
     stages {
         stage('Example') {
             steps {
-                echo "Hello from Slave ${params.NAME} of ${params.CITY}"
-                
+                sh "hello ${params.Name} --age ${params.Age}"
             }
         }
     }
